@@ -71,7 +71,7 @@ h3 {
 video {
 	width: 100%;
 	height: 100%;
-	object-fit: fill;
+	object-fit: contain;
 	transform: scaleX(-1);
 }
 
@@ -191,6 +191,17 @@ video {
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
+	camera {
+		width: 100%;
+		max-width: 500px;
+		aspect-ratio: 4 / 3;
+		height: auto;	
+	}
+
+	video {
+		object-fit: contain;
+	}
+	
 	body {
 		justify-content: flex-start;
 		padding: 20px;
