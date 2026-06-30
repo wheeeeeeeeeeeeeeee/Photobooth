@@ -18,7 +18,7 @@ const shot3 = document.getElementById('shot3');
 const previews = [shot1, shot2, shot3]
 
 //buttons 
-const bfrButtons = document.getElementById('snap');
+const bfrButtons = document.getElementById('startB');
 const aftButtons = document.getElementById('aftButtons');
 const nextBtn = document.getElementById('next');
 const retakeBtn = document.getElementById('retake');
@@ -27,14 +27,14 @@ let photos = [];
 let finalStripCanvas = null;
 
 
-function initIndex() {
-	startB.onclick = () => {		
-		console.log('yes');
-		window.location.href = "takephoto.html";
-	};
-}
+//function initIndex() {
+//	startB.onclick = () => {		
+//		console.log('yes');
+//		window.location.href = "takephoto.html";
+//	};
+//}
 
-function initTakePhoto() {
+function initIndex() {
 	// ask for access to use camera
 	navigator.mediaDevices.getUserMedia({ video: true })
 	.then(stream => {
@@ -169,6 +169,10 @@ function takePhoto(canvas) {  // takes photo, returns canvas with photo
 
 	canvas.width = video.videoWidth;
 	canvas.height = video.videoHeight;
+
+	/* mirror image */
+	ctx.translate(canvas.width, 0);
+	ctx.scale(-1, 1);
 	
 	//take photo (current frame)
 	ctx.drawImage(video, 0, 0);
@@ -187,7 +191,7 @@ function retake() {
 		previews.forEach(img => img.src = ''); // clear previous photos
 		photos = [];
 		// reset button state
-		document.getElementById("snap").style.display = 'block';
+		document.getElementById("startB").style.display = 'block';
 		document.getElementById("aftButtons").style.display = "none";
 }
 
@@ -265,14 +269,10 @@ function downloadStrip(imagedata) {
   link.click(); // user doesnt need to click, it will auto download if u hover 
 }
 
-
-if (startB) {
-	console.log('yy');
-	initIndex();
-}
+ 
 
 if (video) {
-	initTakePhoto();
+	initIndex();
 };
 
 if (stripImage) {
