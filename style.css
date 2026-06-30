@@ -72,7 +72,7 @@ video {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	/*transform: scaleX(-1);*/
+	transform: scaleX(-1);
 	display: block;
 }
 
@@ -101,7 +101,7 @@ video {
 	height: 100px;
 	width: auto;
 	object-fit: cover;
-	/*transform: scaleX(-1);*/
+	/* transform: scaleX(-1); */
 }
 
 #canvas {
@@ -116,7 +116,7 @@ video {
 	flex-direction: column;
 }
 
-.buttons, .aftBtns {
+.buttons, #aftBtns {
 	display: flex;
 	flex-direction: row;
 	gap: 20px;
@@ -189,3 +189,133 @@ video {
 	gap: 50px;
 }
 
+
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+	body {
+		justify-content: flex-start;
+		padding: 20px;
+		overflow-x: hidden;
+	}
+
+	h1 {
+		font-size: 28px;
+		letter-spacing: 5px;
+		text-align: center;
+	}
+
+	h2 {
+		font-size: 15px;
+		text-align: center;
+	}
+
+	/* take photo page */
+	.app {
+		flex-direction: column;
+		width: 100%;
+		gap: 18px;
+	}
+
+	.left {
+		width: 100%;
+	}
+
+	.camera {
+		width: 100%;
+		max-width: 390px;
+		height: auto;
+		aspect-ratio: 4 / 3;
+	}
+
+	.previews {
+		flex-direction: row;
+		width: 100%;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	#shot1, #shot2, #shot3 {
+		width: 30%;
+		max-width: 115px;
+		height: auto;
+		aspect-ratio: 4 / 3;
+		background: #ddd;
+	}
+
+	.controls {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	#aftButtons {
+		gap: 10px;
+		justify-content: center;
+	}
+
+	#retake, #download, #next, #snap, #startB, #home {
+		padding: 12px 22px;
+		font-size: 13px;
+	}
+
+	#slidingDucks {
+		max-width: 90%;
+		height: auto;
+	}
+
+	/* customise page */
+	.customise {
+		flex-direction: column;
+		height: auto;
+		min-height: 100vh;
+		width: 100%;
+		gap: 20px;
+		padding: 20px 0;
+	}
+
+	.photostrip_div {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	#stripImage {
+		max-width: 85vw;
+		height: auto;
+		max-height: 60vh;
+	}
+
+	.right {
+		width: 100%;
+		align-items: center;
+		text-align: center;
+	}
+
+	#colours, #theme {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.choices {
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 15px;
+	}
+
+	.buttons {
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	#pinkB, #blueB, #greenB, #whiteB {
+		padding: 18px;
+	}
+
+	#duckB img, #noneB img {
+		width: 48px;
+	}
+}
