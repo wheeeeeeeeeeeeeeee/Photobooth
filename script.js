@@ -3,6 +3,9 @@ const startB = document.getElementById('startB');
 
 // initialise
 const video = document.getElementById("video");
+const PHOTO_WIDTH = 500;
+const PHOTO_HEIGHT = 375;
+const canvasRatio = PHOTO_WIDTH/PHOTO_HEIGHT;
 const countdown = document.getElementById('countdown');
 const strip = document.getElementById('strip');
 
@@ -164,11 +167,29 @@ function startCountdown() {  // counts down from three ONLY
 
 
 function takePhoto(canvas) {  // takes photo, returns canvas with photo
+	const videoRatio = video.videoWidth / video.videoHeight;
+	const targetRatio = PHOTO_WIDTH / PHOTO_HEIGHT;
+
 	const ctx = canvas.getContext("2d");
 	// getContext --> drawing API to draw in canvas
 
 	canvas.width = video.videoWidth;
 	canvas.height = video.videoHeight;
+
+	let drawWidth, drawHeight, dx, dy;
+
+	if (videoRatio > canvasRatio) {
+		drawWidth = canvas.width;
+		drawHeight = canvas.width / videoRatio;
+		dx = 0;
+		dy = (canvas.height - drawHeight) / 2;
+	} else {
+		drawHeight = canvas.height;
+		drawWidth = canvas.height * videoRatio;
+		dx = (canvas.width - drawWidth) / 2;
+		dy = 0;
+	}
+
 
 	/* mirror image */
 	ctx.translate(canvas.width, 0);
