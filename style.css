@@ -71,9 +71,8 @@ h3 {
 video {
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: fill;
 	transform: scaleX(-1);
-	display: block;
 }
 
 #countdown{
@@ -98,10 +97,9 @@ video {
 }
 
 #shot1, #shot2, #shot3 {
-	height: 100px;
+	height: 120px;
 	width: auto;
 	object-fit: cover;
-	/* transform: scaleX(-1); */
 }
 
 #canvas {
@@ -116,7 +114,7 @@ video {
 	flex-direction: column;
 }
 
-.buttons, #aftBtns {
+.buttons, #aftButtons {
 	display: flex;
 	flex-direction: row;
 	gap: 20px;
@@ -221,13 +219,6 @@ video {
 		width: 100%;
 	}
 
-	.camera {
-		width: 100%;
-		max-width: 390px;
-		height: auto;
-		aspect-ratio: 4 / 3;
-	}
-
 	.previews {
 		flex-direction: row;
 		width: 100%;
@@ -236,12 +227,10 @@ video {
 	}
 
 	#shot1, #shot2, #shot3 {
-		width: 30%;
-		max-width: 115px;
-		height: auto;
 		aspect-ratio: 4 / 3;
-		background: #ddd;
+		object-fit: cover;
 	}
+
 
 	.controls {
 		width: 100%;
