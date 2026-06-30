@@ -173,8 +173,8 @@ function takePhoto(canvas) {  // takes photo, returns canvas with photo
 	const ctx = canvas.getContext("2d");
 	// getContext --> drawing API to draw in canvas
 
-	canvas.width = video.videoWidth;
-	canvas.height = video.videoHeight;
+	canvas.width = PHOTO_WIDTH;
+	canvas.height = PHOTO_HEIGHT;
 
 	let drawWidth, drawHeight, dx, dy;
 
@@ -196,7 +196,7 @@ function takePhoto(canvas) {  // takes photo, returns canvas with photo
 	ctx.scale(-1, 1);
 	
 	//take photo (current frame)
-	ctx.drawImage(video, 0, 0);
+	ctx.drawImage(video, dx, dy, drawWidth, drawHeight);
 
 	return canvas; 
 }
