@@ -166,8 +166,11 @@ function startCountdown() {  // counts down from three ONLY
 }
 
 
-function takePhoto(canvas) {  // takes photo, returns canvas with photo
-	const videoRatio = video.videoWidth / video.videoHeight;
+function takePhoto(canvas) {  // takes photo, returns canvas with photp
+	const videoWidth = video.videoWidth;
+	const videoHeight = video.videoHeight;
+	
+	const videoRatio = videoWidth / videoHeight;
 	const targetRatio = PHOTO_WIDTH / PHOTO_HEIGHT;
 
 	const ctx = canvas.getContext("2d");
@@ -176,29 +179,31 @@ function takePhoto(canvas) {  // takes photo, returns canvas with photo
 	canvas.width = PHOTO_WIDTH;
 	canvas.height = PHOTO_HEIGHT;
 
-	let drawWidth, drawHeight, dx, dy;
+    let sx = 0;
+    let sy = 0;
+    let sWidth = videoWidth;
+    let sHeight = videoHeight;
 
-	if (videoRatio > canvasRatio) {
-		drawWidth = canvas.width;
-		drawHeight = canvas.width / videoRatio;
-		dx = 0;
-		dy = (canvas.height - drawHeight) / 2;
-	} else {
-		drawHeight = canvas.height;
-		drawWidth = canvas.height * videoRatio;
-		dx = (canvas.width - drawWidth) / 2;
-		dy = 0;
-	}
+    // Match CSS object-fit: cover
+    if (videoRatio > canvasRatio) {
+        // Camera is wider than canvas
+        sWidth = videoHeight * canvasRatio;
+        sx = (videoWidth - sWidth) / 2;
+    } else {
+        // Camera is taller than canvas
+        sHeight = videoWidth / canvasRatio;
+        sy = (videoHeight - sHeight) / 2;
+    }
 
+    // Mirror
+    ctx.save();
+    ctx.translate(canvas.width, 0);
+    ctx.scale(-1, 1);
 
-	/* mirror image */
-	ctx.translate(canvas.width, 0);
-	ctx.scale(-1, 1);
-	
-	//take photo (current frame)
-	ctx.drawImage(video, dx, dy, drawWidth, drawHeight);
+    ctx.drawImage(video, sx, sy, sWidth, sHeight, 0, 0, canvas.width, canvas.height);
 
-	return canvas; 
+    ctx.restore();
+	return canvas;
 }
 
 
