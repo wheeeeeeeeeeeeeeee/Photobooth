@@ -60,19 +60,19 @@ h3 {
 }
 
 .camera{
-	position: relative;
-	/* relative --> makes this container the reference box */
-	/* meaning anything inside with absolute positioning is relative to this box */
-	width: 500px;
-	height: 375px;
-	background: #ddd;
+    width: 500px;
+    height: 375px;
+    position: relative;
+    overflow: hidden;
+    background: black;
+}
 }
 
 video {
 	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	transform: scaleX(-1);
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
 }
 
 #countdown{
