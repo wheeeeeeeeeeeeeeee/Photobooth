@@ -199,6 +199,7 @@ video {
 
 	video {
 		object-fit: contain;
+		scaleX: -1;
 	}
 	
 	body {
