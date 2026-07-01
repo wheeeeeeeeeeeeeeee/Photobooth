@@ -101,9 +101,16 @@ function initCustomise() {
 	const pinkB = document.getElementById('pinkB');
 	const blueB = document.getElementById('blueB');
 	const greenB = document.getElementById('greenB');
+	const darkGB = document.getElementById('darkGB');
+	const blueBB = document.getElementById('blueBB');
+	const beigeB = document.getElementById('beigeB');
+
 
 	const noneB = document.getElementById('noneB');
 	const duckB = document.getElementById('duckB');
+	const mushroomB = document.getElementById('mushroomB');
+	const fishB = document.getElementById('fishB');
+	
 
 	let currColor = '#ffffff';
 	let currTheme = '';
@@ -125,11 +132,34 @@ function initCustomise() {
 		currColor = '#89d495';
 		changeTemplate(canvas, images, currColor, currTheme);
 	};
+	darkGB.onclick = () => {
+		currColor = '#16570B';
+		changeTemplate(canvas, images, currColor, currTheme);
+	};
+	blueBB.onclick = () => {
+		currColor = '#50EAFF';
+		changeTemplate(canvas, images, currColor, currTheme);
+	};
+	beigeB.onclick = () => {
+		currColor = '#DDAB91';
+		changeTemplate(canvas, images, currColor, currTheme);
+	};
 
 	duckB.onclick = () => {
 		currTheme = 'duck';
 		changeTemplate(canvas, images, currColor, currTheme);
 	};
+
+	mushroomB.onclick = () => {
+		currTheme = 'mushroom';
+		changeTemplate(canvas, images, currColor, currTheme);
+	}
+
+	fishB.onclick = () => {
+		currTheme = 'fish';
+		changeTemplate(canvas, images, currColor, currTheme);
+	}
+
 	noneB.onclick = () => {
 		currTheme = '';
 		changeTemplate(canvas, images, currColor, currTheme);
@@ -274,6 +304,12 @@ async function changeTemplate(canvas, images, bgColor, theme) {
 
 	if (theme === 'duck') {
 		stickerSrc = 'stickers/duck.png';
+	}
+	else if (theme == 'mushroom') {
+		stickerSrc = 'stickers/mushroom.png';
+	}
+	else if (theme == 'fish') {
+		stickerSrc = 'stickers/fish.png';
 	}
 	else {
 		return canvas;
