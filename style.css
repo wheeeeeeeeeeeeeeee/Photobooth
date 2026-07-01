@@ -72,6 +72,7 @@ video {
     height: 100%;
     object-fit: cover;
     transform: scaleX(-1);
+	display: block;
 }
 
 #countdown{
@@ -96,7 +97,7 @@ video {
 }
 
 #shot1, #shot2, #shot3 {
-	height: 120px;
+	height: 100px;
 	width: auto;
 	object-fit: cover;
 }
@@ -145,7 +146,7 @@ video {
 }
 
 /* COLOURS */
-#pinkB, #blueB, #greenB, #whiteB {
+#pinkB, #blueB, #greenB, #whiteB, #darkGB, #blueBB, #beigeB {
 	padding: 20px;
 	border-radius: 50%;
 	border: none;
@@ -155,12 +156,15 @@ video {
 #pinkB {background-color: pink;}
 #blueB {background-color: #bbe5ff;}
 #greenB {background-color: #89d495;}
+#darkGB {background-color: #16570B}
+#blueBB {background-color: #50EAFF}
+#beigeB {background-color: #DDAB91}
 
 /* THEMES */
-#duckB, #noneB {
+#duckB, #noneB, #fishB, #mushroomB {
 	border: none;}
 
-#duckB img, #noneB img {
+#duckB img, #noneB img, #fishB img, #mushroomB img {
 	width: 55px;
 	height: auto;
 	background-color: none;
