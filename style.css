@@ -314,11 +314,11 @@ video {
 		gap: 12px;
 	}
 
-	#pinkB, #blueB, #greenB, #whiteB {
+	#pinkB, #blueB, #greenB, #whiteB, #darkGB, #blueBB, #beigeB {
 		padding: 18px;
 	}
 
-	#duckB img, #noneB img {
+	#duckB img, #noneB img, #fishB img, #mushroomB img {
 		width: 48px;
 	}
 }
